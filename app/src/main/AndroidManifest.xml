@@ -20,6 +20,22 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" >
+            <intent-filter>
+                <action android:name="com.baidu.location.service_v2.2" >
+                </action>
+            </intent-filter>
+        </service>
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="RZQazaMTZ49zEEZxLA0dXeNR" />  <!--http://lbsyun.baidu.com/apiconsole/key-->
+
+        <!-- meta-data需要写在application中 -->
+
         <activity
             android:name=".ui.SplashActivity"
             android:label="@string/app_name"

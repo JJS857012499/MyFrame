@@ -2,6 +2,8 @@ package com.zengfull.myfragme;
 
 import android.app.Application;
 
+import com.baidu.location.service.LocationService;
+import com.baidu.mapapi.SDKInitializer;
 import com.zengfull.myfragme.api.GlobalHttpApi;
 import com.zengfull.myfragme.util.SharePreferenceUtil;
 
@@ -13,6 +15,7 @@ public class GlobalApp extends Application {
     private static final String APP_NAME = "zengfull";
     private static GlobalApp instance;
     private static SharePreferenceUtil spUtil;
+    public LocationService locationService;
 
     public static GlobalApp getInstance(){
         return instance;
@@ -33,5 +36,7 @@ public class GlobalApp extends Application {
     public void onCreate() {
         super.onCreate();
         this.instance = this;
+        locationService = new LocationService(getApplicationContext());
+        SDKInitializer.initialize(getApplicationContext());
     }
 }
